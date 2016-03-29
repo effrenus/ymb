@@ -7,7 +7,7 @@ var path = require('path'),
 var cfg = ymb.resolveBuildConfig();
 
 gulp.task('ym-clean', function (cb) {
-    ymb.del(path.resolve(cfg.dest), { force: true }, cb);
+    ymb.del(path.resolve(cfg.dest), { force: true }).then(function () { cb(); });
 });
 
 gulp.task('ym-rebuild', function () {
